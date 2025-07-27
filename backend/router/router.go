@@ -12,14 +12,7 @@ func SetupRouter() *gin.Engine {
 	r := gin.Default() 
 	r.GET("/jobs", handlers.GetJobs)
 	r.POST("/jobs", handlers.CreateJob)
+	r.PUT("/jobs/:id", handlers.UpdateJob)
+	r.DELETE("/jobs/:id", handlers.DeleteJob)
 	return r
 }
-
-// curl -X POST http://localhost:8080/jobs \
-//   -H "Content-Type: application/json" \
-//   -d '{
-//     "company": "Microsoft",
-//     "title": "PM",
-//     "status": "applied",
-//     "date_applied": "2025-07-27"
-//   }'
